@@ -1,4 +1,4 @@
-# App
+# Backend-With-Rails
 
 Backend Django
 
@@ -9,6 +9,7 @@ Backend Django
 
 ## Cấu trúc thư mục
 
+```
 app/
 ├── manage.py                    # Django CLI entrypoint — chạy server, migration, tạo app, ...
 ├── requirements.txt              # Danh sách package Python mà project phụ thuộc
@@ -61,9 +62,11 @@ app/
     ├── middleware.py                 # Custom middleware — xử lý request/response xuyên suốt toàn app (logging, header, ...)
     ├── pagination.py                 # Custom pagination class dùng chung cho các API danh sách
     └── permissions.py                # Permission class dùng chung cho nhiều app
+```
 
 ## Mô hình app
 
+```
 | App             | Vai trò                                                                 |
 |-----------------|-------------------------------------------------------------------------|
 | config          | Cấu hình project Django (settings, root URLs, WSGI/ASGI)                |
@@ -72,6 +75,7 @@ app/
 | projects        | Model Project, CRUD project                                             |
 | tasks           | Model Task, gắn với Project, CRUD task                                  |
 | common          | Middleware, pagination, exception handler, permission dùng chung        |
+```
 
 ## Chạy application ở local
 
@@ -99,6 +103,7 @@ pip install -r requirements.txt
 
 Đảm bảo 5 app hiện có đã được thêm vào INSTALLED_APPS trong config/settings.py:
 
+```
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -113,6 +118,7 @@ INSTALLED_APPS = [
     'tasks',
     'users',
 ]
+```
 
 ### 5. Chạy migration
 
@@ -120,10 +126,14 @@ python manage.py migrate
 
 ### 6. (Tuỳ chọn) Tạo superuser để vào Django admin
 
+```
 python manage.py createsuperuser
+```
 
 ### 7. Chạy server
 
+```
 python manage.py runserver
+```
 
 Mặc định server chạy tại http://127.0.0.1:8000/. Trang admin tại http://127.0.0.1:8000/admin/.
